@@ -1,4 +1,4 @@
-# Celo Truffle Box
+# Celo Health Records
 
 This [Truffle Box](https://www.trufflesuite.com/boxes) will help you get started building a mobile dapp using Celo and React Native in Javascript. We will build a simple React Native application that we can use to read and update a contract on the [Alfajores test network](https://docs.celo.org/getting-started/alfajores-testnet).
 
