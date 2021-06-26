@@ -1,7 +1,7 @@
 # Celo Health Records
 
 # ScreenShots
-<img src="https://drive.google.com/file/d/1FSF3tpGD21zRGvTMeGt5FUNu_yI8Osgd/view?usp=sharing">
+<img src="images/Screenshot_20210623-234951_Expo Go.jpg">
 ## Requirements
 
 - [Node.js](https://nodejs.org/en/)
