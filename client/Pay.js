@@ -19,13 +19,17 @@ YellowBox.ignoreWarnings(['Warning: The provided value \'moz', 'Warning: The pro
 
 export class Pay extends Component {
 
+  componentDidMount(){
+    this.props.write7();
+    this.props.read7();
+  }
+
     render() {
         return (
         <View style={styles.container}>
           <View style={styles.space} />
         <Text>Based on your Health Records </Text>
-        <Text>you can buy Insurance Premium at 5 cUSD</Text>
-
+        <Text>you can buy Insurance Premium at: {this.props.ins} CUSD</Text>
         <View style={styles.spacel} />
 
         <Button style={{padding: 30}} title="Buy using Celo Wallet"/>

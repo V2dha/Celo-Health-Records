@@ -2,16 +2,16 @@
 pragma solidity >=0.5.0;
 
 
-
 // Declare a contract 
 contract Healthrecords {
     string bloodgroup = "None";
     string diseases = "None";
     string medications = "None";
     string allergies = "None";
-    string weight = "None";
-    string height = "None";
-    string age = "None";
+    uint weight = 0;
+    uint height = 0;
+    uint age = 0;
+    uint insurance = 0;
     
 
     // Declares a function called getName
@@ -35,16 +35,20 @@ contract Healthrecords {
         return allergies;
     }
 
-    function getWeight() public view returns (string memory) {
+    function getWeight() public view returns (uint) {
         return weight;
     }
 
-    function getHeight() public view returns (string memory) {
+    function getHeight() public view returns (uint) {
         return height;
     }
 
-    function getAge() public view returns (string memory) {
+    function getAge() public view returns (uint) {
         return age;
+    }
+
+    function getInsurance() public view returns (uint) {
+        return insurance;
     }
 
     function setBloodgroup(string calldata nbloodgroup) external {
@@ -63,16 +67,33 @@ contract Healthrecords {
         allergies = nallergies;
     }
 
-    function setWeight(string calldata nweight) external {
+    function setWeight(uint nweight) external {
         weight = nweight;
     }
 
-    function setHeight(string calldata nheight) external {
+    function setHeight(uint nheight) external {
         height = nheight;
     }
 
-    function setAge(string calldata nage) external {
+    function setAge(uint nage) external {
         age = nage;
     }
+
+    function setInsurance() external {
+        if (age < 18){
+            insurance = 2;
+        }
+        else if (age > 18 && age < 25){
+            insurance = 5;
+        }
+        else if (age > 25 && age < 45){
+            insurance = 10;
+        }
+        else {
+            insurance = 15;
+        }
+
+    }
+
 
 }

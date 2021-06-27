@@ -42,12 +42,13 @@ export default class App extends React.Component {
     textInput2: '',
     contractName3: '',
     textInput3: '',
-    age : '',
-    textInput4: '',
-    height : '',
-    textInput5:'',
-    weight:'',
-    textInput6:''
+    age : 0,
+    textInput4: 0,
+    height : 0,
+    textInput5: 0,
+    weight:0,
+    textInput6: 0,
+    insurance:0
   }
 
   // This function is called when the page successfully renders
@@ -124,6 +125,11 @@ export default class App extends React.Component {
   read6 = async () => {
     let wt = await this.state.HealthRecordContract.methods.getWeight().call()  // Read the name stored in the contract
     this.setState({ weight: wt })   // Update state
+  }
+
+  read7 = async () => {
+    let ins = await this.state.HealthRecordContract.methods.getInsurance().call()  // Read the name stored in the contract
+    this.setState({ insurance: ins })   // Update state
   }
   // Read Function
 
@@ -299,6 +305,10 @@ export default class App extends React.Component {
     console.log(`Hello World contract update transaction receipt: `, result)  
     Alert.alert('Updated Successfully')
   }
+
+  write7 = async() => {
+    await this.HealthRecordContract.methods.setInsurance().send()
+  }
   // Write Function
 
 
@@ -390,7 +400,7 @@ export default class App extends React.Component {
 
     else if (this.state.value == 'Pay')
         return <View> 
-          <Pay/> 
+          <Pay write7={this.write7} read7={this.read7} ins={this.state.insurance}/> 
         </View>;
   }
   //Render menu
